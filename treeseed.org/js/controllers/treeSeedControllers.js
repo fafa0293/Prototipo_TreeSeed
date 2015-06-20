@@ -1,9 +1,5 @@
 var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.services']);
 
-treeSeedAppControllers.controller('mainController', function($state) {
-    
-  })
-;
 
 treeSeedAppControllers.controller('indexController', function($state, $location) {
   if($sharedData.getLoged()===true){
