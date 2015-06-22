@@ -3,6 +3,8 @@ var treeSeedApp = {};
 
 var treeSeedApp = angular.module('treeSeed', ['treeSeed.services',
     'treeSeed.controller',
+    'treeSeed.directives',
+    'treeSeed.filters',
     'ngAnimate',
     'ngAria',
     'ngCookies',

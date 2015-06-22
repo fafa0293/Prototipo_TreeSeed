@@ -1,9 +1,22 @@
+
 var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.services']);
 
+treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
+  //if($sharedData.getLoged()==true){
+      $scope.datePicker = function (start, end, label) {
+    }
+  //}else{
+    //$state.go('signin');
+ // }
+  })
+;
 
-treeSeedAppControllers.controller('indexController', function($state, $location) {
-  if($sharedData.getLoged()===true){
-    $location.path("treeseed.org/index");
+
+treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
+  if($sharedData.getLoged()==true){
+    $scope.report=function(){
+      $state.go('treeSeed.searchTransReport');
+    }
   }else{
     $state.go('signin');
   }
@@ -20,8 +33,7 @@ treeSeedAppControllers.controller('logoutController', function($sharedData, $loc
 ;
 
 treeSeedAppControllers.controller('SigninFormController', function($scope, $http, $state, $userData, $sharedData, $location) {
-    $location.path("signin");
-    if($sharedData.getLoged()===false){
+    if($sharedData.getLoged()==false){
       $scope.authError = null;
       $scope.users = $userData.getUsers();
       $scope.login = function() {
