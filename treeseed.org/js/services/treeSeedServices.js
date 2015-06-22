@@ -26,21 +26,30 @@ treeSeedAppServices.service('$userData', function(){
     var users = [
             {
                 Name: "Ricardo@hola",
-                Password: "test123"
+                Password: "test123",
+                Type: "donor"
                
             },
             {
                 Name: "Aramis@hola",
-                Password: "test456"
+                Password: "test456",
+                Type: "donor"
             },
             {
                 Name: "Fabian@hola",
-                Password: "test789"
+                Password: "test789",
+                Type: "donor"
             }
             ,
             {
                 Name: "a@hola",
-                Password: "1"
+                Password: "1",
+                Type: "donor"
+            },
+             {
+                Name: "territoriodezaguates@gmail.com",
+                Password: "12345",
+                Type: "ONG"
             }
         ];
     return {

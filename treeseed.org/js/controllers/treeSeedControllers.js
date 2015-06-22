@@ -40,19 +40,27 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
         var totalUsers = $scope.users.length;
           var usernameTyped = $scope.user.email;
           var passwordTyped = $scope.user.password;
+          var userType = "";
           var loggedin= false;
           
          for(i=0; i < totalUsers; i++ ) {
               if( $scope.users[i].Name == usernameTyped && $scope.users[i].Password == passwordTyped) {
                   loggedin=true;
-                  
+                  userType = $scope.users[i].Type;
               }
           }
 
           if( loggedin === true ) {
               $sharedData.setLoggedUser(usernameTyped);
-              $state.go('treeSeed.index');
               $sharedData.setLoged(true);
+
+              if(userType == "ONG"){
+                   $state.go('treeSeed.nonProfit');
+              }else{
+                  $state.go('treeSeed.index');
+              }
+              
+
           } else {
               $scope.authError="wrong email or password";
               $sharedData.setLoged(false);
@@ -84,3 +92,13 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
     };
   }])
   ; 
+
+
+
+
+
+
+  treeSeedAppControllers.controller('NonProfitController', function($scope, $http, $state,  $sharedData, $location) {
+   
+})
+;
