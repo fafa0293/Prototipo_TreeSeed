@@ -28,8 +28,8 @@ angular.module('treeSeed')
         })
         .state('treeSeed.nonProfit', {
              url: '/nonProfit',
-             templateUrl: '/layouts/pages/nonProfit.html'
-             //resolve: load(['js/controllers/chart.js'])
+             templateUrl: '/layouts/pages/nonProfit.html',
+            controller: 'NonProfitController'
         })
         .state('treeSeed.donate', {
             url: '/donate',
