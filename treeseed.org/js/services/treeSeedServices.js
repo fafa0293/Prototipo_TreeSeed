@@ -6,6 +6,7 @@ treeSeedAppServices.value('version', '0.1');
 treeSeedAppServices.service('$sharedData', function(){
     var loggedUser = "";
     var type = "";
+    var img="";
     var loged = false;
     var ongName = "Territorio de Zaguates"
     return {
@@ -32,6 +33,12 @@ treeSeedAppServices.service('$sharedData', function(){
         },
         setUserType  : function(value){
             type =  value ;
+        },
+        getImg : function(){
+            return img;
+        },
+        setImg  : function(value){
+            img =  value ;
         }
     }
 });
@@ -40,36 +47,47 @@ treeSeedAppServices.service('$userData', function(){
     var users = [
             {
                 Name: "Ricardo Bonilla",
-                Email: "eldoc@gmail.com"
+                Email: "eldoc@gmail.com",
                 Password: "123",
-                Type: "donor"
+                Type: "donor",
+                Imagen: "a8.jpg"
                
             },
             {
+                Name: "Aramis",
                 Email: "Aramis@hola",
                 Password: "test456",
-                Type: "donor"
+                Type: "donor",
+                Imagen: ""
             },
             {
+                Name: "Camilo",
                 Email: "camilo@hola",
                 Password: "test123",
-                Type: "donor"
+                Type: "donor",
+                Imagen: ""
             },
             {
+                Name: "Fabian",
                 Email: "Fabian@hola",
                 Password: "test789",
-                Type: "donor"
+                Type: "donor",
+                Imagen: ""
             }
             ,
             {
+                Name: "Hola",
                 Email: "a@hola",
                 Password: "1",
-                Type: "donor"
+                Type: "donor",
+                Imagen: ""
             },
              {
+                Name: "Territorio de Zaguates",
                 Email: "territoriodezaguates@gmail.com",
                 Password: "12345",
-                Type: "ONG"
+                Type: "ONG",
+                Imagen: "territorio.jpg"
             }
         ];
     return {

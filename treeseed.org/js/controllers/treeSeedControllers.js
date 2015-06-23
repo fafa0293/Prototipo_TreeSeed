@@ -33,7 +33,11 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
 ;
 
 
-
+treeSeedAppControllers.controller('userController', function($state, $location,$sharedData, $scope) {
+        $scope.nom=$sharedData.getLoggedUser();
+        $scope.img= $sharedData.getImg();
+})
+;
 
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
   if($sharedData.getLoged()==true){
@@ -76,22 +80,28 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
       $scope.users = $userData.getUsers();
       $scope.login = function() {
         var totalUsers = $scope.users.length;
-          var usernameTyped = $scope.user.email;
+          var usernameTyped = $scope.user.name;
+          var useremail = $scope.user.email;
           var passwordTyped = $scope.user.password;
+          var name = "";
+          var img = "";
           var userType = "";
           var loggedin= false;
           
          for(i=0; i < totalUsers; i++ ) {
-              if( $scope.users[i].Name == usernameTyped && $scope.users[i].Password == passwordTyped) {
+              if( $scope.users[i].email == usernameTyped && $scope.users[i].Password == passwordTyped) {
                   loggedin=true;
                   userType = $scope.users[i].Type;
-              }
+                  img = $scope.users[i].Imagen;
+                  name = $scope.users[i].Name;
+                  }
           }
 
           if( loggedin === true ) {
-              $sharedData.setLoggedUser(usernameTyped);
+              $sharedData.setLoggedUser(name);
               $sharedData.setLoged(true);
                $sharedData.setUserType(userType);
+               $sharedData.setImg(img);
 
               if(userType == "ONG"){
                    $state.go('treeSeed.nonProfit');
@@ -101,7 +111,7 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
               
 
           } else {
-              $scope.authError="wrong email or password";
+              $scope.authError="Email o contraseña incorrecta";
               $sharedData.setLoged(false);
           }
       };
