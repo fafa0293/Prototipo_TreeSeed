@@ -3,8 +3,46 @@ var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.ser
 
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
   //if($sharedData.getLoged()==true){
-      $scope.datePicker = function (start, end, label) {
-    }
+      $scope.begin = "";
+      $scope.end = "";
+      $scope.cantResul = false;
+      $scope.styleClass="form-group";
+      $scope.styleClass="form-group has-error";
+
+      $scope.today = function() {
+      $scope.dt = new Date();
+    };
+
+    $scope.clear = function () {
+      $scope.dt = null;
+    };
+
+    // Disable weekend selection
+    $scope.disabled = function(date, mode) {
+      return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+    };
+
+    $scope.toggleMin = function() {
+      $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.opened = true;
+    };
+
+    $scope.dateOptions = {
+      formatYear: 'yy',
+      startingDay: 1,
+      class: 'datepicker'
+    };
+
+    $scope.initDate = new Date('2016-15-20');
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
   //}else{
     //$state.go('signin');
  // }
@@ -12,14 +50,16 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
 ;
 
 
+
+
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
-  if($sharedData.getLoged()==true){
+  //if($sharedData.getLoged()==true){
     $scope.report=function(){
       $state.go('treeSeed.searchTransReport');
     }
-  }else{
-    $state.go('signin');
-  }
+  //}else{
+  //  $state.go('signin');
+  //}
   })
 ;
 
@@ -28,6 +68,13 @@ treeSeedAppControllers.controller('logoutController', function($sharedData, $loc
         $sharedData.setLoggedUser('');
         $sharedData.setLoged(false);
         $state.go('signin');
+    }
+  })
+;
+
+treeSeedAppControllers.controller('navigateController', function($state, $location,$sharedData, $scope) {
+    $scope.navigateDonor=function(){
+      $state.go('treeSeed.donor');
     }
   })
 ;
@@ -102,3 +149,21 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
    
 })
 ;
+
+
+treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.myInterval = 5000;
+    var slides = $scope.slides = [];
+    $scope.addSlide = function() {
+      var newWidth = 600 + slides.length + 1;
+      slides.push({
+        image: 'http://placekitten.com/' + newWidth + '/300',
+        text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+          ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+      });
+    };
+    for (var i=0; i<4; i++) {
+      $scope.addSlide();
+    }
+  }])
+  ; 
