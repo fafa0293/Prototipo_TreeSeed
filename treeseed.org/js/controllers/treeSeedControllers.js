@@ -28,7 +28,7 @@ treeSeedAppControllers.controller('showToUserController', function($state, $loca
 
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
       
-    //if($sharedData.getLoged()==true){
+    if($sharedData.getLoged()==true){
       $scope.resul = false;
       $scope.ong=$sharedData.getOngName();
 
@@ -36,9 +36,9 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
         $scope.resul = true;  
       };
 
-    //}else{
-   //   $state.go('signin');
-   // }
+    }else{
+      $state.go('signin');
+    }
   })
 ;
 
@@ -131,7 +131,8 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
 })
 ;
 
-treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', function($scope, $http) {
+treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', function($scope, $http,  $sharedData) {
+     if($sharedData.getLoged()==true){
     $scope.selected = undefined;
     $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
     // Any function returning a promise object can be used to load values asynchronously
@@ -149,6 +150,9 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
         return addresses;
       });
     };
+    }else{
+      $state.go('signin');
+    }
   }])
   ; 
 
@@ -163,7 +167,8 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
 ;
 
 
-treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', function($scope, $http) {
+treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', function($scope, $http,  $sharedData) {
+  if($sharedData.getLoged()==true){
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
     $scope.addSlide = function() {
@@ -176,6 +181,9 @@ treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', functi
     };
     for (var i=0; i<4; i++) {
       $scope.addSlide();
+    }
+    }else{
+      $state.go('signin');
     }
   }])
   ; 
