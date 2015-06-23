@@ -1,7 +1,16 @@
 
 angular.module('treeSeed')
-
-.config(function ($stateProvider,   $urlRouterProvider) {
+.run(
+    [          '$rootScope', '$state', '$stateParams',
+      function ($rootScope,   $state,   $stateParams) {
+          $rootScope.$state = $state;
+          $rootScope.$stateParams = $stateParams;        
+      }
+    ]
+  )
+.config(
+    [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 
+      function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
 
 
     $urlRouterProvider.otherwise('/signin');
@@ -42,7 +51,7 @@ angular.module('treeSeed')
             //resolve: load(['js/controllers/chart.js'])
         })
         
-});
+}]);
 
 /*.config(function($routeProvider, $locationProvider, $urlRouterProvider) {
 

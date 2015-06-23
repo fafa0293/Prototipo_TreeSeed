@@ -3,13 +3,53 @@ var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.ser
 
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
   //if($sharedData.getLoged()==true){
-      $scope.datePicker = function (start, end, label) {
-    }
+      $scope.begin = "";
+      $scope.end = "";
+      $scope.cantResul = false;
+      $scope.styleClass="form-group";
+      $scope.styleClass="form-group has-error";
+
+      $scope.today = function() {
+      $scope.dt = new Date();
+    };
+
+    $scope.clear = function () {
+      $scope.dt = null;
+    };
+
+    // Disable weekend selection
+    $scope.disabled = function(date, mode) {
+      return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+    };
+
+    $scope.toggleMin = function() {
+      $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.opened = true;
+    };
+
+    $scope.dateOptions = {
+      formatYear: 'yy',
+      startingDay: 1,
+      class: 'datepicker'
+    };
+
+    $scope.initDate = new Date('2016-15-20');
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
   //}else{
     //$state.go('signin');
  // }
   })
 ;
+
+
 
 
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
@@ -18,7 +58,11 @@ treeSeedAppControllers.controller('indexController', function($state, $location,
       $state.go('treeSeed.searchTransReport');
     }
   //}else{
+<<<<<<< HEAD
   //  $state.go('signin');
+=======
+    //$state.go('signin');
+>>>>>>> 0079d45031f4e5a3c64fc89f7fa71b0b8b9b9168
   //}
   })
 ;

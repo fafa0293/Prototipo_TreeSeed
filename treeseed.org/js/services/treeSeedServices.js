@@ -6,6 +6,7 @@ treeSeedAppServices.value('version', '0.1');
 treeSeedAppServices.service('$sharedData', function(){
     var loggedUser = "";
     var loged = false;
+    var ongName = "Territorio de Zaguates"
     return {
         getLoggedUser : function(){
             return loggedUser;
@@ -18,6 +19,13 @@ treeSeedAppServices.service('$sharedData', function(){
         },
         setLoged  : function(value){
             loged =  value ;
+        }
+        ,
+        getOngName : function(){
+            return ongName;
+        },
+        setOngName  : function(value){
+            ongName =  value ;
         }
     }
 });
