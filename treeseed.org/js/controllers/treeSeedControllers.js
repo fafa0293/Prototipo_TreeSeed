@@ -53,13 +53,13 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
 
 
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
-  if($sharedData.getLoged()==true){
+  //if($sharedData.getLoged()==true){
     $scope.report=function(){
       $state.go('treeSeed.searchTransReport');
     }
-  }else{
-    $state.go('signin');
-  }
+  //}else{
+    //$state.go('signin');
+  //}
   })
 ;
 

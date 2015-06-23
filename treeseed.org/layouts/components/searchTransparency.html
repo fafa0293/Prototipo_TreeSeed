@@ -11,9 +11,9 @@
           </div>
           <br>
           <br>
-          <div class="col-sm-10" ng-controller="searchTransparecyReportController">
-            <div class="classes">
-              <input type="text" class="form-control has-error" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Fecha de Fin"/>
+         <div class="col-sm-10" ng-controller="searchTransparecyReportController">
+            <div class="input-group w-md">
+              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Fecha de Fin"/>
               <span class="input-group-btn">
                 <button type="button" class="btn btn-default form-control" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
