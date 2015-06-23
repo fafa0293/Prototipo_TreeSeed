@@ -13,6 +13,22 @@ treeSeedAppControllers.controller('transpReportSearchController', function($stat
       
     };
 });
+
+
+treeSeedAppControllers.controller('menuController', function($state, $location,$sharedData, $scope) {
+    $scope.menuUrl1 = "layouts";
+    $scope.menuUrl2 = "components";
+    $scope.menuUrl3 = "";
+  if($sharedData.getUserType() == "ONG"){
+      $scope.menuUrl3 =   'aside.html' ;
+  }else{
+      $scope.menuUrl3 =  'asideDonor.html' ;
+  }
+
+
+});
+
+
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
   //if($sharedData.getLoged()==true){
       $scope.begin = "";
@@ -129,6 +145,7 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
           if( loggedin === true ) {
               $sharedData.setLoggedUser(usernameTyped);
               $sharedData.setLoged(true);
+               $sharedData.setUserType(userType);
 
               if(userType == "ONG"){
                    $state.go('treeSeed.nonProfit');
