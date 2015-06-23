@@ -13,13 +13,13 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
 
 
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
-  if($sharedData.getLoged()==true){
+  //if($sharedData.getLoged()==true){
     $scope.report=function(){
       $state.go('treeSeed.searchTransReport');
     }
-  }else{
-    $state.go('signin');
-  }
+  //}else{
+  //  $state.go('signin');
+  //}
   })
 ;
 
@@ -28,6 +28,13 @@ treeSeedAppControllers.controller('logoutController', function($sharedData, $loc
         $sharedData.setLoggedUser('');
         $sharedData.setLoged(false);
         $state.go('signin');
+    }
+  })
+;
+
+treeSeedAppControllers.controller('navigateController', function($state, $location,$sharedData, $scope) {
+    $scope.navigateDonor=function(){
+      $state.go('treeSeed.donor');
     }
   })
 ;
@@ -102,3 +109,21 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
    
 })
 ;
+
+
+treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.myInterval = 5000;
+    var slides = $scope.slides = [];
+    $scope.addSlide = function() {
+      var newWidth = 600 + slides.length + 1;
+      slides.push({
+        image: 'http://placekitten.com/' + newWidth + '/300',
+        text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+          ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+      });
+    };
+    for (var i=0; i<4; i++) {
+      $scope.addSlide();
+    }
+  }])
+  ; 
