@@ -36,6 +36,11 @@ treeSeedAppServices.service('$userData', function(){
                 Type: "donor"
             },
             {
+                Name: "camilo@hola",
+                Password: "test123",
+                Type: "donor"
+            },
+            {
                 Name: "Fabian@hola",
                 Password: "test789",
                 Type: "donor"
