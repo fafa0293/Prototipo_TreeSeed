@@ -76,6 +76,14 @@ treeSeedAppControllers.controller('navigateController', function($state, $locati
     $scope.navigateDonor=function(){
       $state.go('treeSeed.donor');
     }
+
+    $scope.navigateONG=function(){
+      $state.go('treeSeed.nonProfit');
+    }
+
+    $scope.navigateCampaing=function(){
+      $state.go('treeSeed.campaingViewer');
+    }
   })
 ;
 
@@ -167,3 +175,43 @@ treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', functi
     }
   }])
   ; 
+
+
+  treeSeedAppControllers.controller('DonationCtrl', function($state, $location,$sharedData, $scope, $modal, $log) {
+      $scope.animationsEnabled = true;
+
+      $scope.open = function () {
+
+        var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'myModalContent.html',
+          controller: 'ModalDonationCtrl',
+        });
+      };
+
+      $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+      };
+  })
+;
+
+
+
+ treeSeedAppControllers.controller('ModalDonationCtrl', function($state, $location,$sharedData, $scope, $modalInstance, $timeout) {
+
+  $scope.ok = function () {
+
+    $scope.correcto = "Donacion Realizada Correctamente!";
+    $scope.status=true;
+    $timeout(function () { $modalInstance.close();}, 3000);
+    
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+  })
+;
+
+ 
