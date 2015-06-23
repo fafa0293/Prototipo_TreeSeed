@@ -48,7 +48,7 @@ angular.module('treeSeed')
         .state('treeSeed.searchTransReport', {
             url: '/str',
             templateUrl: '/layouts/pages/transparencyReportSearch.html',
-            controller: 'transpReportSearchController'
+            controller: 'searchTransparecyReportController'
         })
         .state('treeSeed.createCampaing', {
             url: '/createCampaing',

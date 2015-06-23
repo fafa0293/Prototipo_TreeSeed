@@ -2,87 +2,33 @@
 var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.services']);
 
 
-treeSeedAppControllers.controller('transpReportSearchController', function($state, $location,$sharedData, $scope) {
-    $scope.resul = false;
-      //$scope.styleClass="form-control";
-      
-      $scope.ong=$sharedData.getOngName();
-
-    $scope.search = function(){
-      $scope.resul = true;
-      
-    };
-});
-
-
 treeSeedAppControllers.controller('menuController', function($state, $location,$sharedData, $scope) {
-    $scope.menuUrl1 = "layouts";
-    $scope.menuUrl2 = "components";
-    $scope.menuUrl3 = "";
-  if($sharedData.getUserType() == "ONG"){
-      $scope.menuUrl3 =   'aside.html' ;
-  }else{
-      $scope.menuUrl3 =  'asideDonor.html' ;
-  }
+    $scope.getMenu=function(){
+      if($sharedData.getUserType() == "ONG"){
+          return  "layouts/components/aside.html";
+      }else{
+          return "layouts/components/asideDonor.html" ;
+      }
+    }
+    
 
 
 });
 
 
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
-  //if($sharedData.getLoged()==true){
-      $scope.begin = "";
-      $scope.end = "";
+      $scope.resul = false;
+    //if($sharedData.getLoged()==true){
+      
+      $scope.ong=$sharedData.getOngName();
 
-    /*$scope.validar = function(){
-      $scope.valuesStart=fechaInicial.split("-");
-      $scope.valuesEnd=fechaFinal.split("-");
+      $scope.search = function(){
+        $scope.resul = true;  
+      };
 
-      // Verificamos que la fecha no sea posterior a la actual
-      $scope.dateStart=new Date(valuesStart[2],(valuesStart[1]-1),valuesStart[0]);
-      $scope.dateEnd=new Date(valuesEnd[2],(valuesEnd[1]-1),valuesEnd[0]);
-      if(dateStart>=dateEnd)
-      {
-          return true;
-      }
-      return false;
-    }*/
-
-    //*********************************calendar*************************
-    $scope.clear = function () {
-      $scope.dt = null;
-    };
-
-    // Disable weekend selection
-    $scope.disabled = function(date, mode) {
-      return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
-    };
-
-    $scope.toggleMin = function() {
-      $scope.minDate = $scope.minDate ? null : new Date();
-    };
-    $scope.toggleMin();
-
-    $scope.open = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
-
-      $scope.opened = true;
-    };
-
-    $scope.dateOptions = {
-      formatYear: 'yy',
-      startingDay: 1,
-      class: 'datepicker'
-    };
-
-    $scope.initDate = new Date('2016-15-20');
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
-    $scope.format = $scope.formats[0];
-
-  //}else{
-    //$state.go('signin');
- // }
+    //}else{
+      //$state.go('signin');
+    //}
   })
 ;
 
@@ -90,13 +36,13 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
 
 
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
-  //if($sharedData.getLoged()==true){
+  if($sharedData.getLoged()==true){
     $scope.report=function(){
       $state.go('treeSeed.searchTransReport');
     }
-  //}else{
-    //$state.go('signin');
-  //}
+  }else{
+    $state.go('signin');
+  }
   })
 ;
 

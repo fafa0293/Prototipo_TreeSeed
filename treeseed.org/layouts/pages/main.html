@@ -3,7 +3,7 @@
 	
 	<div ng-controller="menuController">
 	 <!-- menu -->
-	  <div  data-ng-include="{{menuUrl1}}"+"/"+"{{menuUrl2}}"+"/"+"{{menuUrl3}}"  class="app-aside hidden-xs {{app.settings.asideColor}}">
+	  <div  data-ng-include="getMenu()"  class="app-aside hidden-xs {{app.settings.asideColor}}">
 	  </div>
 	  <!-- / menu -->
 	</div>
