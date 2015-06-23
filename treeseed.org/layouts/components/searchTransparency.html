@@ -9,8 +9,9 @@
               </span>
             </div>
           </div>
-          <br>
-          <br>
+          </div>
+            <button class="btn btn-lg btn-default" type="button" ng-click="search()">Search</button>
+          </div>
          <div class="col-sm-10" ng-controller="searchTransparecyReportController">
             <div class="input-group w-md">
               <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Fecha de Fin"/>
@@ -18,16 +19,15 @@
                 <button type="button" class="btn btn-default form-control" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
               </span>
             </div>
-          </div>
-        <button class="btn btn-lg btn-default" type="button">Search</button>
-    </div>
-  </form>
-  <p class="m-b-md" ng-show="cantResul"><strong>3</strong> Transparency reports found between: <strong>Keyword</strong></p>
-      <ul class="list-group no-borders pull-in m-b-none">
-        <li class="list-group-item">
-          <a href="#" class="h4 text-primary m-b-sm m-t-sm block">Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementum ligula venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum</p>
-          </p>
-        </li>
-      </ul>
+    <div>
+    </form>
+    <p class="m-b-md" ng-show="cantResul"><strong>3</strong> Transparency reports found between: <strong>Keyword</strong></p>
+        <ul class="list-group no-borders pull-in m-b-none">
+          <li class="list-group-item">
+            <a href="#" class="h4 text-primary m-b-sm m-t-sm block">Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementum ligula venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum</p>
+            </p>
+          </li>
+        </ul>
+      </div>
 </div>

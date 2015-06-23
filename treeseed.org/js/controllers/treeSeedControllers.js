@@ -13,6 +13,24 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
       $scope.dt = new Date();
     };
 
+    
+
+
+    $scope.validar = function(){
+      valuesStart=fechaInicial.split("-");
+      valuesEnd=fechaFinal.split("-");
+
+      // Verificamos que la fecha no sea posterior a la actual
+      var dateStart=new Date(valuesStart[2],(valuesStart[1]-1),valuesStart[0]);
+      var dateEnd=new Date(valuesEnd[2],(valuesEnd[1]-1),valuesEnd[0]);
+      if(dateStart>=dateEnd)
+      {
+          return 0;
+      }
+      return 1;
+    }
+
+    //*********************************calendar*************************
     $scope.clear = function () {
       $scope.dt = null;
     };
@@ -43,6 +61,7 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
     $scope.initDate = new Date('2016-15-20');
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
+
   //}else{
     //$state.go('signin');
  // }
