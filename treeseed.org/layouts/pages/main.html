@@ -1,20 +1,16 @@
 	<div ng-init="app.settings.container = false; app.settings.headerFixed = false; app.settings.asideFolded = false; app.settings.asideDock = false;" class="md-navbar navbar blue md-whiteframe-z1" data-ng-include=" '/layouts/components/material.header.html' " >
 	</div>
 	
-	<div layout="row">
-	  <!-- menu -->
-	  
+	 <!-- menu -->
+	  <div data-ng-include=" 'layouts/components/aside.html' " class="app-aside hidden-xs {{app.settings.asideColor}}">
+	  </div>
 	  <!-- / menu -->
 
-	  <!-- view -->
-	  <div flex layout="column" >
-	  	<div ui-butterbar></div>
-    	<a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".md-aside" ></a>
-	  	<div class="md-content" ui-view></div>
-	  </div>
-	  <!-- / view -->
-	</div>
-
+	<div class="app-content">
+    	<div ui-butterbar></div>
+		<a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+		<div class="app-content-body fade-in-up" ui-view></div>
+  	</div>
 
 	<div ng-init="app.settings.container = false;" class="text-muted" data-ng-include=" '/layouts/components/page_footer.html' " >
 	</div>
