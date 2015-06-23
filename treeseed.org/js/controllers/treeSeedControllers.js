@@ -1,18 +1,38 @@
 
 var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.services']);
 
+
+treeSeedAppControllers.controller('transpReportSearchController', function($state, $location,$sharedData, $scope) {
+    $scope.resul = false;
+      //$scope.styleClass="form-control";
+      
+      $scope.ong=$sharedData.getOngName();
+
+    $scope.search = function(){
+      $scope.resul = true;
+      
+    };
+});
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
   //if($sharedData.getLoged()==true){
       $scope.begin = "";
       $scope.end = "";
-      $scope.cantResul = false;
-      $scope.styleClass="form-group";
-      $scope.styleClass="form-group has-error";
 
-      $scope.today = function() {
-      $scope.dt = new Date();
-    };
+    /*$scope.validar = function(){
+      $scope.valuesStart=fechaInicial.split("-");
+      $scope.valuesEnd=fechaFinal.split("-");
 
+      // Verificamos que la fecha no sea posterior a la actual
+      $scope.dateStart=new Date(valuesStart[2],(valuesStart[1]-1),valuesStart[0]);
+      $scope.dateEnd=new Date(valuesEnd[2],(valuesEnd[1]-1),valuesEnd[0]);
+      if(dateStart>=dateEnd)
+      {
+          return true;
+      }
+      return false;
+    }*/
+
+    //*********************************calendar*************************
     $scope.clear = function () {
       $scope.dt = null;
     };
@@ -43,6 +63,7 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
     $scope.initDate = new Date('2016-15-20');
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
+
   //}else{
     //$state.go('signin');
  // }
