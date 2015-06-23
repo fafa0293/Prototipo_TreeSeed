@@ -1,7 +1,16 @@
 
 angular.module('treeSeed')
-
-.config(function ($stateProvider,   $urlRouterProvider) {
+.run(
+    [          '$rootScope', '$state', '$stateParams',
+      function ($rootScope,   $state,   $stateParams) {
+          $rootScope.$state = $state;
+          $rootScope.$stateParams = $stateParams;        
+      }
+    ]
+  )
+.config(
+    [          '$stateProvider', '$urlRouterProvider', 'JQ_CONFIG', 'MODULE_CONFIG', 
+      function ($stateProvider,   $urlRouterProvider, JQ_CONFIG, MODULE_CONFIG) {
 
 
     $urlRouterProvider.otherwise('/signin');
@@ -38,11 +47,21 @@ angular.module('treeSeed')
         })
         .state('treeSeed.searchTransReport', {
             url: '/str',
-            templateUrl: '/layouts/pages/transparencyReportSearch.html'
+            templateUrl: '/layouts/pages/transparencyReportSearch.html',
+            controller: 'transpReportSearchController'
+        })
+        .state('treeSeed.createCampaing', {
+            url: '/createCampaing',
+            templateUrl: '/layouts/pages/createCampaing.html'
+            //resolve: load(['js/controllers/chart.js'])
+        })
+         .state('treeSeed.campaingViewer', {
+            url: '/campaingViewer',
+            templateUrl: '/layouts/pages/campaingViewer.html'
             //resolve: load(['js/controllers/chart.js'])
         })
         
-});
+}]);
 
 /*.config(function($routeProvider, $locationProvider, $urlRouterProvider) {
 

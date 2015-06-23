@@ -1,10 +1,69 @@
 
 var treeSeedAppControllers = angular.module('treeSeed.controller',['treeSeed.services']);
 
+
+treeSeedAppControllers.controller('transpReportSearchController', function($state, $location,$sharedData, $scope) {
+    $scope.resul = false;
+      //$scope.styleClass="form-control";
+      
+      $scope.ong=$sharedData.getOngName();
+
+    $scope.search = function(){
+      $scope.resul = true;
+      
+    };
+});
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
   //if($sharedData.getLoged()==true){
-      $scope.datePicker = function (start, end, label) {
-    }
+      $scope.begin = "";
+      $scope.end = "";
+
+    /*$scope.validar = function(){
+      $scope.valuesStart=fechaInicial.split("-");
+      $scope.valuesEnd=fechaFinal.split("-");
+
+      // Verificamos que la fecha no sea posterior a la actual
+      $scope.dateStart=new Date(valuesStart[2],(valuesStart[1]-1),valuesStart[0]);
+      $scope.dateEnd=new Date(valuesEnd[2],(valuesEnd[1]-1),valuesEnd[0]);
+      if(dateStart>=dateEnd)
+      {
+          return true;
+      }
+      return false;
+    }*/
+
+    //*********************************calendar*************************
+    $scope.clear = function () {
+      $scope.dt = null;
+    };
+
+    // Disable weekend selection
+    $scope.disabled = function(date, mode) {
+      return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+    };
+
+    $scope.toggleMin = function() {
+      $scope.minDate = $scope.minDate ? null : new Date();
+    };
+    $scope.toggleMin();
+
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.opened = true;
+    };
+
+    $scope.dateOptions = {
+      formatYear: 'yy',
+      startingDay: 1,
+      class: 'datepicker'
+    };
+
+    $scope.initDate = new Date('2016-15-20');
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[0];
+
   //}else{
     //$state.go('signin');
  // }
@@ -12,14 +71,16 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
 ;
 
 
+
+
 treeSeedAppControllers.controller('indexController', function($state, $location,$sharedData, $scope) {
-  if($sharedData.getLoged()==true){
+  //if($sharedData.getLoged()==true){
     $scope.report=function(){
       $state.go('treeSeed.searchTransReport');
     }
-  }else{
-    $state.go('signin');
-  }
+  //}else{
+  //  $state.go('signin');
+  //}
   })
 ;
 
@@ -28,6 +89,21 @@ treeSeedAppControllers.controller('logoutController', function($sharedData, $loc
         $sharedData.setLoggedUser('');
         $sharedData.setLoged(false);
         $state.go('signin');
+    }
+  })
+;
+
+treeSeedAppControllers.controller('navigateController', function($state, $location,$sharedData, $scope) {
+    $scope.navigateDonor=function(){
+      $state.go('treeSeed.donor');
+    }
+
+    $scope.navigateONG=function(){
+      $state.go('treeSeed.nonProfit');
+    }
+
+    $scope.navigateCampaing=function(){
+      $state.go('treeSeed.campaingViewer');
     }
   })
 ;
@@ -102,3 +178,61 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
    
 })
 ;
+
+
+treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', function($scope, $http) {
+    $scope.myInterval = 5000;
+    var slides = $scope.slides = [];
+    $scope.addSlide = function() {
+      var newWidth = 600 + slides.length + 1;
+      slides.push({
+        image: 'http://placekitten.com/' + newWidth + '/300',
+        text: ['More','Extra','Lots of','Surplus'][slides.length % 4] + ' ' +
+          ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+      });
+    };
+    for (var i=0; i<4; i++) {
+      $scope.addSlide();
+    }
+  }])
+  ; 
+
+
+  treeSeedAppControllers.controller('DonationCtrl', function($state, $location,$sharedData, $scope, $modal, $log) {
+      $scope.animationsEnabled = true;
+
+      $scope.open = function () {
+
+        var modalInstance = $modal.open({
+          animation: $scope.animationsEnabled,
+          templateUrl: 'myModalContent.html',
+          controller: 'ModalDonationCtrl',
+        });
+      };
+
+      $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+      };
+  })
+;
+
+
+
+ treeSeedAppControllers.controller('ModalDonationCtrl', function($state, $location,$sharedData, $scope, $modalInstance, $timeout) {
+
+  $scope.ok = function () {
+
+    $scope.correcto = "Donacion Realizada Correctamente!";
+    $scope.status=true;
+    $timeout(function () { $modalInstance.close();}, 3000);
+    
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+
+  })
+;
+
+ 
