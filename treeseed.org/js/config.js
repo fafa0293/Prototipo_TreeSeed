@@ -50,6 +50,16 @@ angular.module('treeSeed')
             templateUrl: '/layouts/pages/transparencyReportSearch.html'
             //resolve: load(['js/controllers/chart.js'])
         })
+        .state('treeSeed.createCampaing', {
+            url: '/createCampaing',
+            templateUrl: '/layouts/pages/createCampaing.html'
+            //resolve: load(['js/controllers/chart.js'])
+        })
+         .state('treeSeed.campaingViewer', {
+            url: '/campaingViewer',
+            templateUrl: '/layouts/pages/campaingViewer.html'
+            //resolve: load(['js/controllers/chart.js'])
+        })
         
 }]);
 
