@@ -58,11 +58,7 @@ treeSeedAppControllers.controller('indexController', function($state, $location,
       $state.go('treeSeed.searchTransReport');
     }
   //}else{
-<<<<<<< HEAD
   //  $state.go('signin');
-=======
-    //$state.go('signin');
->>>>>>> 0079d45031f4e5a3c64fc89f7fa71b0b8b9b9168
   //}
   })
 ;
