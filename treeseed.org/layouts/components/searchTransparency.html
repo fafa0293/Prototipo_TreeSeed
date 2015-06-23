@@ -1,33 +1,56 @@
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3"><i class="icon-magnifier i-sm m-r-sm"></i> Reporte de trasnparencia de {{ong}}</h1>
+</div>
+<br>
+<br>
 <div >
-  <form action="#" class="m-b-md">
+  <form action="#" class="m-b-md form-validation" submit="search()">
+    <div >
       <div class="form-group">
-          <div class="col-sm-10" ng-controller="searchTransparecyReportController">
-            <div class="input-group w-md">
-              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Fecha de Incio"/>
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default form-control" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-            </div>
+          <input ui-jq="daterangepicker" ui-options="{
+                format: 'YYYY-MM-DD',
+                startDate: '2015/03/01',
+                endDate: '2015/06/10'
+              }" class="form-control w-md" required />
           </div>
-          <br>
-          <br>
-         <div class="col-sm-10" ng-controller="searchTransparecyReportController">
-            <div class="input-group w-md">
-              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="Fecha de Fin"/>
-              <span class="input-group-btn">
-                <button type="button" class="btn btn-default form-control" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-              </span>
-            </div>
-          </div>
-        <button class="btn btn-lg btn-default" type="button">Search</button>
+          <span class="input-group-btn ">
+            <button class="btn btn-lg btn-success" type="submit">Buscar</button>
+          </span>
+        </div>
+      </div>
     </div>
   </form>
-  <p class="m-b-md" ng-show="cantResul"><strong>3</strong> Transparency reports found between: <strong>Keyword</strong></p>
+  <div ng-hide="resul">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </div>
+  <div ng-show="resul">
+    <p class="m-b-md" ><strong>3</strong> resultados han sido encontrados entre : <strong>Keyword</strong></p>
       <ul class="list-group no-borders pull-in m-b-none">
         <li class="list-group-item">
-          <a href="#" class="h4 text-primary m-b-sm m-t-sm block">Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac </a>
+          <a href="#" class="h4 text-primary m-b-sm m-t-sm block">Reporte de transparencia de Marzo del 2015 </a>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementum ligula venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum</p>
-          </p>
+        </li>
+        <li class="list-group-item">
+          <a href="#" class="h4 text-primary m-b-sm m-t-sm block">Reporte de transparencia de Abril del 2015 </a>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementum ligula venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum</p>
+        </li>
+        <li class="list-group-item">
+          <a href="#" class="h4 text-primary m-b-sm m-t-sm block">Reporte de transparencia de Mayo del 2015</a>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin egestas dui nec, fermentum diam. Vivamus vel tincidunt libero, vitae elementum ligula venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum</p>
         </li>
       </ul>
+    </div>
 </div>

@@ -47,8 +47,8 @@ angular.module('treeSeed')
         })
         .state('treeSeed.searchTransReport', {
             url: '/str',
-            templateUrl: '/layouts/pages/transparencyReportSearch.html'
-            //resolve: load(['js/controllers/chart.js'])
+            templateUrl: '/layouts/pages/transparencyReportSearch.html',
+            controller: 'transpReportSearchController'
         })
         
 }]);
