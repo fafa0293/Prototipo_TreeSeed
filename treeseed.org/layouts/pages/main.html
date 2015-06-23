@@ -2,8 +2,10 @@
 	</div>
 	
 	<div ng-controller="menuController">
-	 <!-- menu -->
-	  <div  data-ng-include="getMenu()"  class="app-aside hidden-xs {{app.settings.asideColor}}">
+	 <!-- menu 
+	  <div    class="app-aside hidden-xs {{app.settings.asideColor}}">
+	  </div>-->
+	  <div flex class="app-aside hidden-xs {{app.settings.asideColor}}" data-ng-include="getMenu()">
 	  </div>
 	  <!-- / menu -->
 	</div>

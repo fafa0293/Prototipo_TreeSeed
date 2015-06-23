@@ -160,8 +160,9 @@ treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', functi
   }])
   ; 
 
-
+  
   treeSeedAppControllers.controller('DonationCtrl', function($state, $location,$sharedData, $scope, $modal, $log) {
+    if($sharedData.getLoged()==true){
       $scope.animationsEnabled = true;
 
       $scope.open = function () {
@@ -176,6 +177,9 @@ treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', functi
       $scope.toggleAnimation = function () {
         $scope.animationsEnabled = !$scope.animationsEnabled;
       };
+    }else{
+      $state.go('signin');
+    }
   })
 ;
 

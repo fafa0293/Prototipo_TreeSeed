@@ -39,34 +39,35 @@ treeSeedAppServices.service('$sharedData', function(){
 treeSeedAppServices.service('$userData', function(){
     var users = [
             {
-                Name: "Ricardo@hola",
-                Password: "test123",
+                Name: "Ricardo Bonilla",
+                Email: "eldoc@gmail.com"
+                Password: "123",
                 Type: "donor"
                
             },
             {
-                Name: "Aramis@hola",
+                Email: "Aramis@hola",
                 Password: "test456",
                 Type: "donor"
             },
             {
-                Name: "camilo@hola",
+                Email: "camilo@hola",
                 Password: "test123",
                 Type: "donor"
             },
             {
-                Name: "Fabian@hola",
+                Email: "Fabian@hola",
                 Password: "test789",
                 Type: "donor"
             }
             ,
             {
-                Name: "a@hola",
+                Email: "a@hola",
                 Password: "1",
                 Type: "donor"
             },
              {
-                Name: "territoriodezaguates@gmail.com",
+                Email: "territoriodezaguates@gmail.com",
                 Password: "12345",
                 Type: "ONG"
             }
