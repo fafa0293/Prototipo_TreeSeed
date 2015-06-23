@@ -17,9 +17,9 @@ treeSeedAppControllers.controller('menuController', function($state, $location,$
 
 
 treeSeedAppControllers.controller('searchTransparecyReportController', function($state, $location,$sharedData, $scope) {
-      $scope.resul = false;
-    //if($sharedData.getLoged()==true){
       
+    //if($sharedData.getLoged()==true){
+      $scope.resul = false;
       $scope.ong=$sharedData.getOngName();
 
       $scope.search = function(){
@@ -27,8 +27,8 @@ treeSeedAppControllers.controller('searchTransparecyReportController', function(
       };
 
     //}else{
-      //$state.go('signin');
-    //}
+   //   $state.go('signin');
+   // }
   })
 ;
 
