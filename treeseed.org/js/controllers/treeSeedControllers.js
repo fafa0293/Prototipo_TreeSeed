@@ -131,10 +131,10 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
 })
 ;
 
-treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', function($scope, $http,  $sharedData) {
+treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http','$sharedData', function($scope, $http,  $sharedData) {
      if($sharedData.getLoged()==true){
     $scope.selected = undefined;
-    $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    $scope.states = ['Territorio de Zaguates'];
     // Any function returning a promise object can be used to load values asynchronously
     $scope.getLocation = function(val) {
       return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
@@ -167,7 +167,7 @@ treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http', funct
 ;
 
 
-treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', function($scope, $http,  $sharedData) {
+treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http','$sharedData', function($scope, $http,  $sharedData) {
   if($sharedData.getLoged()==true){
     $scope.myInterval = 5000;
     var slides = $scope.slides = [];
@@ -189,8 +189,7 @@ treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', functi
   ; 
 
   
-  treeSeedAppControllers.controller('DonationCtrl', function($state, $location,$sharedData, $scope, $modal, $log) {
-    if($sharedData.getLoged()==true){
+  treeSeedAppControllers.controller('DonationCtrl', function($state, $location, $sharedData, $scope, $modal, $log) {
       $scope.animationsEnabled = true;
 
       $scope.open = function () {
@@ -205,9 +204,6 @@ treeSeedAppControllers.controller('CarouselDemoCtrl', ['$scope', '$http', functi
       $scope.toggleAnimation = function () {
         $scope.animationsEnabled = !$scope.animationsEnabled;
       };
-    }else{
-      $state.go('signin');
-    }
   })
 ;
 
