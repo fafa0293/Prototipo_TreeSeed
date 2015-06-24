@@ -131,8 +131,8 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
 })
 ;
 
-treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http','$sharedData', '$state', function($scope,$state, $http,  $sharedData) {
-    if($sharedData.getLoged()==true){
+treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http','$sharedData', function($scope, $http,  $sharedData) {
+     if($sharedData.getLoged()==true){
     $scope.selected = undefined;
     $scope.states = ['Territorio de Zaguates'];
     // Any function returning a promise object can be used to load values asynchronously
