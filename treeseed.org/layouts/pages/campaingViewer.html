@@ -100,7 +100,9 @@
             </div>
             <div ng-show="status" class="alert alert-success" role="alert">{{correcto}}</div>
           </script>
-          <button class="btn btn-default" ng-click="open()">Realizar Donacion</button>
+          <div ng-controller="showToUserController">
+                  <button ng-show="view()" class="btn btn-default" ng-click="open()">Realizar Donacion</button>
+              </div>
           </div>  
 
           <br><br>
