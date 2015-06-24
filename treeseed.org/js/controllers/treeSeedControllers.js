@@ -16,12 +16,15 @@ treeSeedAppControllers.controller('menuController', function($state, $location,$
 });
 
 treeSeedAppControllers.controller('showToUserController', function($state, $location,$sharedData, $scope) {
-    
-    if($sharedData.getUserType()=="ONG"){
-        $scope.resul=false;
+   
+   $scope.view=function(){
+      if($sharedData.getUserType()=="ONG"){
+       return false;
     }else{
-        $scope.resul=false;
+        return true;
     }
+   } 
+    
 
 
 });
