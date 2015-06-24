@@ -131,7 +131,7 @@ treeSeedAppControllers.controller('SigninFormController', function($scope, $http
 })
 ;
 
-treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http','$sharedData', function($scope, $http,  $sharedData) {
+treeSeedAppControllers.controller('TypeaheadDemoCtrl', ['$scope', '$http','$sharedData', '$state', function($scope, $http,  $sharedData, $state) {
      if($sharedData.getLoged()==true){
     $scope.selected = undefined;
     $scope.states = ['Territorio de Zaguates'];

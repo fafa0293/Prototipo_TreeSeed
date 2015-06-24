@@ -74,9 +74,9 @@
         <form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Buscar" ui-sref="treeSeed.nonProfit"> 
+              <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Buscar"> 
               <span class="input-group-btn">
-                <button type="submit" class="btn  bg-light rounded" ><i class="fa fa-search"></i></button>
+                <button type="submit" class="btn  bg-light rounded" ui-sref="treeSeed.nonProfit"><i class="fa fa-search" ></i></button>
               </span>
             </div>
           </div>
